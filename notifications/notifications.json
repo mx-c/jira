@@ -1,0 +1,110 @@
+{
+  "data": [
+    {
+      "id": "1536140541095-ylEkug-hkLUqIF42",
+      "notificationId": "ylEkug-hkLUqIF42",
+      "title": "RRS-590 Backend - Fetch additional user data when sync messages",
+      "template": "{user1} mentioned you on an issue",
+      "objectId": "ari:cloud:jira:b12da171-6005-4934-98f0-7d81880a70ab:issue/12132",
+      "eventType": "Mention",
+      "timestamp": "2018-09-05T09:42:21.095Z",
+      "metadata": {
+        "content": {
+          "id": "12132",
+          "title": "RRS-590 Backend - Fetch additional user data when sync messages",
+          "url": "https://dream-team.atlassian.net/browse/RRS-590"
+        },
+        "issue": {
+          "summary": "Backend - Fetch additional user data when sync messages",
+          "url": "https://dream-team.atlassian.net/browse/RRS-590",
+          "status": {
+            "id": 1,
+            "name": "Open",
+            "categoryKey": "new"
+          },
+          "issueID": "12132",
+          "issueKey": "RRS-590"
+        },
+        "notificationIcon": {
+          "url": "https://dream-team.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype"
+        },
+        "user1": {
+          "atlassianId": "5a6ee8d261b6f67018d72e23",
+          "name": "KmeCnin"
+        }
+      },
+      "users": {
+        "5a6ee8d261b6f67018d72e23": "KmeCnin"
+      },
+      "readState": "unread",
+      "grouping": {
+        "container": {
+          "id": "ari:cloud:jira:b12da171-6005-4934-98f0-7d81880a70ab:project/10007",
+          "title": "Mention RRS",
+          "url": "https://dream-team.atlassian.net/projects/RRS"
+        },
+        "object": {
+          "id": "ari:cloud:jira:b12da171-6005-4934-98f0-7d81880a70ab:issue/12132",
+          "title": "RRS-590 Backend - Fetch additional user data when sync messages",
+          "url": "https://dream-team.atlassian.net/browse/RRS-590"
+        }
+      },
+      "direct": true
+    },
+    {
+      "id": "1536138684088-oSmYfYB0CUCHJAY4",
+      "notificationId": "oSmYfYB0CUCHJAY4",
+      "title": "RRS-589 Purchase link for an upsell showing an amount that exceeded the amount the client should pay",
+      "template": "{user1} mentioned you in a comment",
+      "objectId": "ari:cloud:jira:b12da171-6005-4934-98f0-7d81880a70ab:comment/15203",
+      "eventType": "Mention",
+      "timestamp": "2018-09-05T09:11:24.088Z",
+      "metadata": {
+        "content": {
+          "id": "12111",
+          "title": "RRS-589 Purchase link for an upsell showing an amount that exceeded the amount the client should pay",
+          "url": "https://dream-team.atlassian.net/browse/RRS-589?focusedCommentId=15203&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-15203"
+        },
+        "contentBody": {
+          "documentFormat": null,
+          "htmlFormat": "<p><a href=\"https://dream-team.atlassian.net/secure/ViewProfile.jspa?name=possum3d\" class=\"user-hover\" rel=\"possum3d\">Possum3D</a> any news ?</p>"
+        },
+        "issue": {
+          "summary": "Purchase link for an upsell showing an amount that exceeded the amount the client should pay",
+          "url": "https://dream-team.atlassian.net/browse/RRS-589?focusedCommentId=15203&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-15203",
+          "status": {
+            "id": 3,
+            "name": "In progress",
+            "categoryKey": "inprogress"
+          },
+          "issueID": "12111",
+          "issueKey": "RRS-589"
+        },
+        "notificationIcon": {
+          "url": "https://dream-team.atlassian.net/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype"
+        },
+        "user1": {
+          "atlassianId": "5a670cfb390d0d1daa4558eb",
+          "name": "zozo le clown"
+        }
+      },
+      "users": {
+        "5a670cfb390d0d1daa4558eb": "zozo le clown"
+      },
+      "readState": "read",
+      "grouping": {
+        "container": {
+          "id": "ari:cloud:jira:b12da171-6005-4934-98f0-7d81880a70ab:project/10007",
+          "title": "Mention RRS",
+          "url": "https://dream-team.atlassian.net/projects/RRS"
+        },
+        "object": {
+          "id": "ari:cloud:jira:b12da171-6005-4934-98f0-7d81880a70ab:issue/12111",
+          "title": "RRS-589 Purchase link for an upsell showing an amount that exceeded the amount the client should pay",
+          "url": "https://dream-team.atlassian.net/browse/RRS-589"
+        }
+      },
+      "direct": true
+    }
+  ]
+}
