@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
+	"regexp"
 
 	"github.com/c-bata/go-prompt"
 	flags "github.com/jessevdk/go-flags"
@@ -18,12 +20,15 @@ const (
 	notifs        string = "notifs"
 	ticket_status string = "status"
 	status_get    string = "get"
+	status_update string = "update"
 	help          string = "help"
 )
 
 var opts struct {
 	Interactive bool `short:"i" long:"interactive" description:"Use ./jira interactively."`
 }
+
+var ticketRegexp = regexp.MustCompile(`([A-Z]+-\d+)`)
 
 func main() {
 
@@ -75,7 +80,12 @@ func interactive(conf *jira_api.Config) {
 		switch cmd {
 		case status_get:
 			status.Get(restClient, ticket)
+		case status_update:
+			fmt.Println("Transition to:")
+			newStatus := prompt.Input("> ", UpdateStatusCompleter)
+			status.Update(restClient, ticket, newStatus)
 		}
+		os.Exit(1)
 	case help:
 		helpCommand()
 		os.Exit(1)
@@ -86,10 +96,25 @@ func interactive(conf *jira_api.Config) {
 
 }
 
+func UpdateStatusCompleter(d prompt.Document) []prompt.Suggest {
+	s := []prompt.Suggest{
+		{Text: "Start", Description: "Start"},
+		{Text: "Abandoned", Description: "Abandoned"},
+		{Text: "Stop", Description: "Stop"},
+		{Text: "Ready for review", Description: "Ready for review"},
+		{Text: "In Review", Description: "In Review"},
+		{Text: "Need changes", Description: "Need changes"},
+		{Text: "Ready", Description: "Ready"},
+		{Text: "Reopen", Description: "Reopen"},
+	}
+	return prompt.FilterHasPrefix(s, d.GetWordBeforeCursor(), true)
+
+}
+
 func StatusCommandCompleter(d prompt.Document) []prompt.Suggest {
 	s := []prompt.Suggest{
 		{Text: "get", Description: "retrieve status for reference"},
-		{Text: "transition", Description: "modifiy status"},
+		{Text: "update", Description: "modifiy status"},
 	}
 	return prompt.FilterHasPrefix(s, d.GetWordBeforeCursor(), true)
 }
@@ -134,4 +159,19 @@ func loadConfig() (*jira_api.Config, error) {
 	}
 
 	return conf, nil
+}
+
+// It retrieves the ticket from open branch where the jira soft is called.
+func smartGetTicket() string {
+	out, err := exec.Command("git", "rev-parse", "--abbrev-ref", "HEAD").Output()
+	if err != nil {
+		panic(err)
+	}
+
+	match := ticketRegexp.FindStringSubmatch(string(out))
+	if len(match) < 1 {
+		panic(fmt.Errorf("Failed to retrieve a ticket match"))
+	}
+
+	return match[0]
 }
